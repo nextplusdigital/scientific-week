@@ -3,3 +3,5 @@ python:
   - 3.5
 install:
   - pip install -r backend/requirements.txt
+script:
+  - python backend/api/run.py
