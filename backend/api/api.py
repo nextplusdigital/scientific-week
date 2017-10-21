@@ -1,8 +1,9 @@
+from datetime import datetime
+
+import status
 from flask import Flask
 from flask_restful import abort, Api, fields, marshal_with, reqparse, Resource
-from datetime import datetime
 from models import MessageModel
-import status
 from pytz import utc
 
 
@@ -84,9 +85,12 @@ class MessageList(Resource):
     @marshal_with(message_fields)
     def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('message', type=str, required=True, help='Message cannot be blank!')
-        parser.add_argument('duration', type=int, required=True, help='Duration cannot be blank!')
-        parser.add_argument('message_category', type=str, required=True, help='Message category cannot be blank!')
+        parser.add_argument('message', type=str, required=True,
+                            help='Message cannot be blank!')
+        parser.add_argument('duration', type=int, required=True,
+                            help='Duration cannot be blank!')
+        parser.add_argument('message_category', type=str, required=True,
+                            help='Message category cannot be blank!')
         args = parser.parse_args()
         message = MessageModel(
             message=args['message'],
@@ -101,7 +105,8 @@ class MessageList(Resource):
 app = Flask(__name__)
 api = Api(app)
 api.add_resource(MessageList, '/api/messages/')
-api.add_resource(Message, '/api/messages/<int:id>', endpoint='message_endpoint')
+api.add_resource(Message, '/api/messages/<int:id>',
+                 endpoint='message_endpoint')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

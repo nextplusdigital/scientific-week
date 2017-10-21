@@ -1,12 +1,12 @@
+import status
 from flask import Blueprint, request, jsonify, make_response
+from flask import g
+from flask_httpauth import HTTPBasicAuth
 from flask_restful import Api, Resource
+from helpers import PaginationHelper
+from models import User, UserSchema
 from models import db, Category, CategorySchema, Message, MessageSchema
 from sqlalchemy.exc import SQLAlchemyError
-import status
-from helpers import PaginationHelper
-from flask_httpauth import HTTPBasicAuth
-from flask import g
-from models import User, UserSchema
 
 auth = HTTPBasicAuth()
 
@@ -66,7 +66,8 @@ class UserListResource(Resource):
         try:
             user = User(name=name)
             error_message, password_ok = \
-                user.check_password_strength_and_hash_if_ok(request_dict['password'])
+                user.check_password_strength_and_hash_if_ok(
+                    request_dict['password'])
             if password_ok:
                 user.add(user)
                 query = User.query.get(user.id)
@@ -94,7 +95,8 @@ class MessageResource(AuthRequiredResource):
             if Message.is_unique(id=id, message=message_message):
                 message.message = message_message
             else:
-                response = {'error': 'A message with the same message already exists'}
+                response = {'error': 'A message with the same message already '
+                                     'exists'}
                 return response, status.HTTP_400_BAD_REQUEST
         if 'duration' in message_dict:
             message.duration = message_dict['duration']
@@ -117,9 +119,7 @@ class MessageResource(AuthRequiredResource):
             return resp, status.HTTP_400_BAD_REQUEST
 
     def delete(self, id):
-        message = Message.query.get_or_404(id)
         try:
-            delete = message.delete(message)
             response = make_response()
             return response, status.HTTP_204_NO_CONTENT
         except SQLAlchemyError as e:
@@ -149,7 +149,8 @@ class MessageListResource(AuthRequiredResource):
             return errors, status.HTTP_400_BAD_REQUEST
         message_message = request_dict['message']
         if not Message.is_unique(id=0, message=message_message):
-            response = {'error': 'A message with the same message already exists'}
+            response = {'error': 'A message with the same message already '
+                                 'exists'}
             return response, status.HTTP_400_BAD_REQUEST
         try:
             category_name = request_dict['category']['name']
@@ -195,7 +196,8 @@ class CategoryResource(AuthRequiredResource):
                 if Category.is_unique(id=id, name=category_name):
                     category.name = category_name
                 else:
-                    response = {'error': 'A category with the same name already exists'}
+                    response = {'error': 'A category with the same name '
+                                         'already exists'}
                     return response, status.HTTP_400_BAD_REQUEST
             category.update()
             return self.get(id)
@@ -232,7 +234,8 @@ class CategoryListResource(AuthRequiredResource):
             return errors, status.HTTP_400_BAD_REQUEST
         category_name = request_dict['name']
         if not Category.is_unique(id=0, name=category_name):
-            response = {'error': 'A category with the same name already exists'}
+            response = {'error': 'A category with the same name already '
+                                 'exists'}
             return response, status.HTTP_400_BAD_REQUEST
         try:
             category = Category(category_name)
