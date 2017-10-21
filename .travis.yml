@@ -4,4 +4,4 @@ python:
 install:
   - pip install -r backend/requirements.txt
 script:
-  - python backend/api/run.py
+  - pytest
