@@ -1,7 +1,7 @@
-import { get } from 'src/support/storage'
+import { getItem } from 'src/core/helpers/storage'
 
-const user = get('user')
-const token = get('token')
+const user = getItem('user')
+const token = getItem('token')
 
 export default {
   user: user || {},

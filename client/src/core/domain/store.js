@@ -1,7 +1,8 @@
 import auth from './auth'
+import app from './app'
 import { isFunction } from 'lodash'
 
-const store = { auth }
+const store = { auth, app }
 
 const keys = Object.keys(store)
 

@@ -1,4 +1,4 @@
-import { postLogin } from 'services/auth'
+import { postLogin } from 'src/core/services/auth'
 import { isEmpty } from 'lodash'
 import * as TYPES from './mutations-types'
 import { setItem, getItem } from 'core/helpers/storage'

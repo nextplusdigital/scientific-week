@@ -1,4 +1,4 @@
-import store from '../store'
+import store from 'src/core/store'
 
 const needAuth = auth => auth === true
 

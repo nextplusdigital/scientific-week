@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import beforeEach from 'src/router/beforeEach'
-import routes from 'src/router/routes'
+import beforeEach from 'src/core/router/beforeEach'
+import routes from 'src/core/router/routes'
 
 Vue.use(VueRouter)
 
