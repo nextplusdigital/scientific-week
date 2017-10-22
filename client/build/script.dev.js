@@ -2,8 +2,7 @@ process.env.NODE_ENV = 'development'
 
 require('colors')
 
-var
-  path = require('path'),
+var path = require('path'),
   express = require('express'),
   webpack = require('webpack'),
   env = require('./env-utils'),
@@ -80,7 +79,7 @@ module.exports = app.listen(port, function (err) {
   // open browser if set so in /config/index.js
   if (config.dev.openBrowser) {
     devMiddleware.waitUntilValid(function () {
-      opn(uri)
+      // opn(uri)
     })
   }
 })

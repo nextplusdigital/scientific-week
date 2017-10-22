@@ -12,8 +12,8 @@ require(`./themes/app.${__THEME}.styl`)
 
 import Vue from 'vue'
 import Quasar from 'quasar'
-import Router from './core/router'
-import Store from './core/store'
+import router from './core/router'
+import store from './core/store'
 import Http from './core/pluggables/http'
 
 Vue.config.productionTip = false
@@ -21,22 +21,18 @@ Vue.use(Quasar) // Install Quasar Framework
 
 Vue.use(Http) // Http inject dependecy
 
-Vue.config.errorHandle = (err, vm, info) => {
-  console.log(' err ' + JSON.stringify(err) + ' vm info ' + JSON.stringify(vm) + ' infoo error ' + JSON.stringify(info))
-}
-
 if (__THEME === 'mat') {
   require('quasar-extras/roboto-font')
 }
-// import 'quasar-extras/material-icons'
+import 'quasar-extras/material-icons'
 // import 'quasar-extras/ionicons'
-import 'quasar-extras/fontawesome'
+// import 'quasar-extras/fontawesome'
 // import 'quasar-extras/animate'
 
 /* eslint-disable no-new */
 new Vue({
   el: '#q-app',
-  Router,
-  Store,
+  router,
+  store,
   render: h => h(require('./Root').default)
 })

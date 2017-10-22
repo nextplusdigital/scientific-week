@@ -4,7 +4,7 @@ var prodEnv = require('./prod.env')
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
   APP: {
-    NAME: '"Semana de Tecnologia da Fameta"',
+    NAME: '"10ª Semana de Tecnologia Fameta"',
     DEVICE: '"appDevice"',
     TOKEN: '"appAuth"',
     USER: '"appUser"'

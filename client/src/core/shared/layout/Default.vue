@@ -1,5 +1,5 @@
 <template>
-  <q-layout ref="layout" :class="['layout-default', environment]" :view="view">
+  <q-layout ref='layout' :class="['layout-default', environment]" :view='view'>
 
     <q-toolbar slot="header" class="">
       <slot name="header">
@@ -31,7 +31,7 @@
     <q-scroll-area slot="left" style="width: 100%; height: 100%">
       <div class="q-drawer-logo">
         <!--suppress HtmlUnknownTarget -->
-        <img src="statics/logo/big.jpeg" alt="logo" style="width: 200px">
+        <img src="statics/logo/logo_fameta.jpg" alt="logo" style="width: 200px">
       </div>
       <slot name="left">
         <!--<q-list-header>Left Panel</q-list-header>-->
@@ -50,50 +50,108 @@
 </template>
 
 <script type="text/javascript">
-  import { mapGetters } from 'vuex'
+import {
+  QFab,
+  QFabAction,
+  QTooltip,
+  QAjaxBar,
+  QSearch,
+  QDialogSelect,
+  QCheckbox,
+  QIcon,
+  QUploader,
+  QDatetime,
+  QPopover,
+  QList,
+  QLayout,
+  QToolbar,
+  QToolbarTitle,
+  QTabs,
+  QRouteTab,
+  QBtn,
+  QItemSide,
+  QItemMain,
+  QSideLink,
+  QListHeader,
+  QScrollArea,
+  QItem,
+  QSelect
+} from 'quasar-framework'
+import { mapGetters } from 'vuex'
 
-  export default {
-    name: 'layout-default',
-    data: () => ({
-      menus: [
-        {
-          icon: 'person',
-          label: 'Minha Conta'
-        },
-        {
-          icon: 'power_settings_new',
-          label: 'Sair'
-        }
-      ]
-    }),
-    props: {
-      view: {
-        default: 'lHh Lpr fff'
+export default {
+  name: 'layout-default',
+  components: {
+    QFab,
+    QFabAction,
+    QTooltip,
+    QAjaxBar,
+    QSearch,
+    QDialogSelect,
+    QCheckbox,
+    QIcon,
+    QUploader,
+    QDatetime,
+    QPopover,
+    QList,
+    QLayout,
+    QToolbar,
+    QToolbarTitle,
+    QTabs,
+    QRouteTab,
+    QBtn,
+    QItemSide,
+    QItemMain,
+    QSideLink,
+    QListHeader,
+    QScrollArea,
+    QItem,
+    QSelect
+  },
+  data: () => ({
+    menus: [
+      {
+        icon: 'person',
+        label: 'Minha Conta'
+      },
+      {
+        icon: 'power_settings_new',
+        label: 'Sair'
       }
-    },
-    computed: {
-      ...mapGetters(['AppTitle', 'AppName', 'AppMenu']),
-      environment () {
-        // noinspection ES6ModulesDependencies
-        return process.env.NODE_ENV
-      }
-    },
-    methods: {
-      handlerMenu (menu) {
-        // noinspection JSUnresolvedVariable
-        this.$refs.popover.close()
-      }
+    ]
+  }),
+  props: {
+    view: {
+      default: 'lHh Lpr fff'
+    }
+  },
+  computed: {
+    ...mapGetters(['AppTitle', 'AppName', 'AppMenu']),
+    environment () {
+      // noinspection ES6ModulesDependencies
+      return process.env.NODE_ENV
+    }
+  },
+  methods: {
+    handlerMenu (menu) {
+      // noinspection JSUnresolvedVariable
+      this.$refs.popover.close()
     }
   }
+}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .layout-default
-    .q-drawer-logo
-      background #F7F7F7
-      text-align center
-      padding 20px
-      border-bottom 1px #ddd solid
-    .q-toolbar-title
-      font-family play
+.layout-default {
+  .q-drawer-logo {
+    background: #F7F7F7;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px #ddd solid
+  }
+
+  .q-toolbar-title {
+    font-family: play
+  }
+}
 </style>

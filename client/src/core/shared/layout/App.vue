@@ -20,7 +20,7 @@
       ...mapActions(['changeTitle', 'changeMenu'])
     },
     created () {
-      this.changeTitle('Painel de Controle')
+      this.changeTitle('Acesso a Informativos, Inscrições e Conteúdo')
       this.changeMenu(menu)
     }
   }

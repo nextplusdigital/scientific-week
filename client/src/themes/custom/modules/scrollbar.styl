@@ -1,21 +1,17 @@
 
-.layout-header, .layout-footer, a, button, label, .item-content
-  font-family play
-
-$scroll = #c0c0c0
 ::-webkit-scrollbar
   width 7px
   height 7px
 ::-webkit-scrollbar-track
-  background $scroll
+  background #DDDDDD
   border 3px solid transparent
   background-clip content-box
 ::-webkit-scrollbar-thumb
   border-radius 1px
-  background $scroll
-  border 1px solid $scroll
+  background #dddddd
+  border 1px solid #DDDDDD
 ::-webkit-scrollbar-thumb:window-inactive
-  background $scroll
+  background #DDDDDD
 
 .mini-scroll
   overflow-y scroll
@@ -23,18 +19,17 @@ $scroll = #c0c0c0
   &::-webkit-scrollbar
     width 5px
   &::-webkit-scrollbar-track
-    background $scroll
+    background #DDDDDD
     border 2px solid transparent
     background-clip content-box
   &::-webkit-scrollbar-thumb
     border-radius 1px
-    background $scroll
-    border 1px solid $scroll
+    background #DDDDDD
+    border 1px solid #DDDDDD
   &::-webkit-scrollbar-thumb:window-inactive
-    background $scroll
+    background #d1d1d1
 
-.q-fab.opened .backdrop
-  background rgba(78, 78, 78, 0.5)
-
-.drawer-content
-  z-index 3000
+.layout-aside.fixed
+  z-index 2001
+.layout-page
+  background #eaeaea

@@ -10,11 +10,12 @@
 </template>
 
 <script type="text/javascript">
+  import { QIcon } from 'quasar-framework'
   import CommonCard from 'src/core/shared/common/Card.vue'
 
   export default {
     components: {
-      CommonCard
+      CommonCard, QIcon
     },
     name: 'dashboard-home'
   }
