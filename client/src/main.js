@@ -14,9 +14,12 @@ import Vue from 'vue'
 import Quasar from 'quasar'
 import Router from './core/router'
 import Store from './core/store'
+import Http from './core/pluggables/http'
 
 Vue.config.productionTip = false
 Vue.use(Quasar) // Install Quasar Framework
+
+Vue.use(Http) // Http inject dependecy
 
 Vue.config.errorHandle = (err, vm, info) => {
   console.log(' err ' + JSON.stringify(err) + ' vm info ' + JSON.stringify(vm) + ' infoo error ' + JSON.stringify(info))
