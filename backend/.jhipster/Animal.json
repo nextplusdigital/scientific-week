@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "tipoAnimal",
+            "otherEntityName": "tipoAnimal",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171028214553",
+    "entityTableName": "animal",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no"
+}

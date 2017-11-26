@@ -1,0 +1,26 @@
+{
+    "romaninisistemasApp": {
+        "vacinacaoAnimal" : {
+            "home": {
+                "title": "Vacinacao Animals",
+                "createLabel": "Criar novo Vacinacao Animal",
+                "createOrEditLabel": "Criar ou editar Vacinacao Animal",
+                "search": "Pesquisar por Vacinacao Animal"
+            },
+            "created": "Um novo Vacinacao Animal foi criado com o identificador {{ param }}",
+            "updated": "Um Vacinacao Animal foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Vacinacao Animal foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Vacinacao Animal {{ id }}?"
+            },
+            "detail": {
+                "title": "Vacinacao Animal"
+            },
+            "identificacao": "Identificacao",
+            "quantidade": "Quantidade",
+            "animal": "Animal",
+            "vacinacao": "Vacinacao",
+            "remedio": "Remedio"
+        }
+    }
+}

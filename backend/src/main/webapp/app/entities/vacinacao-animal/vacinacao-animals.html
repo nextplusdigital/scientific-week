@@ -1,0 +1,91 @@
+<div>
+    <h2 data-translate="romaninisistemasApp.vacinacaoAnimal.home.title">Vacinacao Animals</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="vacinacao-animal.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="romaninisistemasApp.vacinacaoAnimal.home.createLabel">
+                        Create new Vacinacao Animal
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'romaninisistemasApp.vacinacaoAnimal.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="identificacao"><span data-translate="romaninisistemasApp.vacinacaoAnimal.identificacao">Identificacao</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantidade"><span data-translate="romaninisistemasApp.vacinacaoAnimal.quantidade">Quantidade</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="animal.id"><span data-translate="romaninisistemasApp.vacinacaoAnimal.animal">Animal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="vacinacao.id"><span data-translate="romaninisistemasApp.vacinacaoAnimal.vacinacao">Vacinacao</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="remedio.id"><span data-translate="romaninisistemasApp.vacinacaoAnimal.remedio">Remedio</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="vacinacaoAnimal in vm.vacinacaoAnimals track by vacinacaoAnimal.id">
+                    <td><a ui-sref="vacinacao-animal-detail({id:vacinacaoAnimal.id})">{{vacinacaoAnimal.id}}</a></td>
+                    <td>{{vacinacaoAnimal.identificacao}}</td>
+                    <td>{{vacinacaoAnimal.quantidade}}</td>
+                    <td>
+                        <a ui-sref="animal-detail({id:vacinacaoAnimal.animal.id})">{{vacinacaoAnimal.animal.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="vacinacao-detail({id:vacinacaoAnimal.vacinacao.id})">{{vacinacaoAnimal.vacinacao.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="remedio-detail({id:vacinacaoAnimal.remedio.id})">{{vacinacaoAnimal.remedio.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="vacinacao-animal-detail({id:vacinacaoAnimal.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="vacinacao-animal.edit({id:vacinacaoAnimal.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="vacinacao-animal.delete({id:vacinacaoAnimal.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

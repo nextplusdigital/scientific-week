@@ -1,0 +1,19 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "usuario",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pessoa"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20171028214554",
+    "entityTableName": "pessoa",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no"
+}

@@ -1,0 +1,50 @@
+entity Vacinacao {
+	data LocalDate required
+}
+
+entity Remedio {
+	 nome String required
+}
+
+entity TipoAnimal {
+	 nome String required
+}
+
+entity Animal {
+	descricao String required
+}
+
+entity Pessoa {
+	
+}
+
+entity VacinacaoAnimal {
+    identificacao Integer required
+	quantidade Integer required
+}
+
+relationship OneToOne {
+	Pessoa{usuario} to User
+}
+
+relationship ManyToOne {
+	Animal{tipoAnimal} to TipoAnimal
+}
+
+relationship ManyToOne {
+	VacinacaoAnimal{animal} to Animal
+}
+
+relationship ManyToOne{
+  	VacinacaoAnimal{vacinacao} to Vacinacao
+}
+
+relationship ManyToOne{
+  	VacinacaoAnimal{remedio} to Remedio
+}
+
+relationship ManyToOne{
+  	Vacinacao{responsavel} to Pessoa
+}
+// Set pagination options
+paginate TipoAnimal, Animal, VacinacaoAnimal, Vacinacao, Remedio, Pessoa with pagination

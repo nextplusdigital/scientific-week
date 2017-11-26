@@ -1,0 +1,31 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "br.com.romaninisistemas",
+      "nativeLanguage": "pt-br"
+    },
+    "jhipsterVersion": "4.5.3",
+    "baseName": "romaninisistemas",
+    "packageName": "br.com.romaninisistemas",
+    "packageFolder": "br/com/romaninisistemas",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSocialSignIn": true,
+    "jwtSecretKey": "07ab05ecb0d580901d5eb7eeb56caac184375bb1",
+    "enableTranslation": true,
+    "nativeLanguage": "pt-br",
+    "languages": [
+      "pt-br"
+    ]
+  }
+}

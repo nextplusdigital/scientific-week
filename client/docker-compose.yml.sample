@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  phpzm-node:
+    image: ambientum/node:8
+    container_name: phpzm-node
+    command: ./script.start.sh
+    volumes:
+      - .:/var/www/app
+    ports:
+      - 5000:8080
+

@@ -3,6 +3,7 @@ process.env.NODE_ENV = 'production'
 require('colors')
 
 var
+  shell = require('shelljs'),
   path = require('path'),
   env = require('./env-utils'),
   css = require('./css-utils'),
@@ -17,6 +18,9 @@ console.log(' building for Cordova or Electron.\n')
 
 require('./script.clean.js')
 console.log((' Building Quasar App with "' + env.platform.theme + '" theme...\n').bold)
+
+shell.mkdir('-p', targetPath)
+shell.cp('-R', './statics', targetPath)
 
 function finalize () {
   console.log((

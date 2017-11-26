@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="romaninisistemasApp.vacinacaoAnimal.detail.title">Vacinacao Animal</span> {{vm.vacinacaoAnimal.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="romaninisistemasApp.vacinacaoAnimal.identificacao">Identificacao</span></dt>
+        <dd>
+            <span>{{vm.vacinacaoAnimal.identificacao}}</span>
+        </dd>
+        <dt><span data-translate="romaninisistemasApp.vacinacaoAnimal.quantidade">Quantidade</span></dt>
+        <dd>
+            <span>{{vm.vacinacaoAnimal.quantidade}}</span>
+        </dd>
+        <dt><span data-translate="romaninisistemasApp.vacinacaoAnimal.animal">Animal</span></dt>
+        <dd>
+            <a ui-sref="animal-detail({id:vm.vacinacaoAnimal.animal.id})">{{vm.vacinacaoAnimal.animal.id}}</a>
+        </dd>
+        <dt><span data-translate="romaninisistemasApp.vacinacaoAnimal.vacinacao">Vacinacao</span></dt>
+        <dd>
+            <a ui-sref="vacinacao-detail({id:vm.vacinacaoAnimal.vacinacao.id})">{{vm.vacinacaoAnimal.vacinacao.id}}</a>
+        </dd>
+        <dt><span data-translate="romaninisistemasApp.vacinacaoAnimal.remedio">Remedio</span></dt>
+        <dd>
+            <a ui-sref="remedio-detail({id:vm.vacinacaoAnimal.remedio.id})">{{vm.vacinacaoAnimal.remedio.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="vacinacao-animal-detail.edit({id:vm.vacinacaoAnimal.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

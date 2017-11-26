@@ -7,10 +7,7 @@ var
   baseWebpackConfig = require('./webpack.base.conf'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin'),
-  fsUtils = require('./fs-utils')
+  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(baseWebpackConfig, {
   module: {
@@ -52,9 +49,7 @@ module.exports = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency',
-      serviceWorkerLoader: `<script>${fsUtils.loadMinified(path.join(__dirname,
-        './service-worker-prod.js'))}</script>`
+      chunksSortMode: 'dependency'
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
@@ -78,22 +73,6 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    }),
-    // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../src/statics'),
-        to: 'statics',
-        ignore: ['.*']
-      }
-    ]),
-    // service worker caching
-    new SWPrecacheWebpackPlugin({
-      cacheId: 'my-quasar-app',
-      filename: 'service-worker.js',
-      staticFileGlobs: ['dist/**/*.{js,html,css,woff,ttf,eof,woff2,json,svg,gif,jpg,png,mp3}'],
-      minify: true,
-      stripPrefix: 'dist/'
     })
   ]
 })

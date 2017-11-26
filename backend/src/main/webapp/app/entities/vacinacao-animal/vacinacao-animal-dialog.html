@@ -1,0 +1,76 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myVacinacaoAnimalLabel" data-translate="romaninisistemasApp.vacinacaoAnimal.home.createOrEditLabel">Create or edit a Vacinacao Animal</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.vacinacaoAnimal.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.vacinacaoAnimal.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="romaninisistemasApp.vacinacaoAnimal.identificacao" for="field_identificacao">Identificacao</label>
+            <input type="number" class="form-control" name="identificacao" id="field_identificacao"
+                    ng-model="vm.vacinacaoAnimal.identificacao"
+                    required/>
+            <div ng-show="editForm.identificacao.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.identificacao.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.identificacao.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="romaninisistemasApp.vacinacaoAnimal.quantidade" for="field_quantidade">Quantidade</label>
+            <input type="number" class="form-control" name="quantidade" id="field_quantidade"
+                    ng-model="vm.vacinacaoAnimal.quantidade"
+                    required/>
+            <div ng-show="editForm.quantidade.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.quantidade.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.quantidade.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="romaninisistemasApp.vacinacaoAnimal.animal" for="field_animal">Animal</label>
+            <select class="form-control" id="field_animal" name="animal" ng-model="vm.vacinacaoAnimal.animal" ng-options="animal as animal.id for animal in vm.animals track by animal.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="romaninisistemasApp.vacinacaoAnimal.vacinacao" for="field_vacinacao">Vacinacao</label>
+            <select class="form-control" id="field_vacinacao" name="vacinacao" ng-model="vm.vacinacaoAnimal.vacinacao" ng-options="vacinacao as vacinacao.id for vacinacao in vm.vacinacaos track by vacinacao.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="romaninisistemasApp.vacinacaoAnimal.remedio" for="field_remedio">Remedio</label>
+            <select class="form-control" id="field_remedio" name="remedio" ng-model="vm.vacinacaoAnimal.remedio" ng-options="remedio as remedio.id for remedio in vm.remedios track by remedio.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

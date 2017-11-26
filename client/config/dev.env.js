@@ -3,16 +3,10 @@ var prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  APP: {
-    NAME: '"10ª Semana de Tecnologia Fameta"',
-    DEVICE: '"appDevice"',
-    TOKEN: '"appAuth"',
-    USER: '"appUser"'
-  },
   API: {
     PROTOCOL: '"http"',
-    DOMAIN: '"localhost"',
-    PATH: '"/api"',
+    DOMAIN: '"192.168.0.12"',
+    PATH: '""',
     PORT: '"8080"'
   },
   DEV: true

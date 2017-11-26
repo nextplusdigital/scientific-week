@@ -1,0 +1,23 @@
+{
+    "romaninisistemasApp": {
+        "animal" : {
+            "home": {
+                "title": "Animals",
+                "createLabel": "Criar novo Animal",
+                "createOrEditLabel": "Criar ou editar Animal",
+                "search": "Pesquisar por Animal"
+            },
+            "created": "Um novo Animal foi criado com o identificador {{ param }}",
+            "updated": "Um Animal foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Animal foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Animal {{ id }}?"
+            },
+            "detail": {
+                "title": "Animal"
+            },
+            "descricao": "Descricao",
+            "tipoAnimal": "Tipo Animal"
+        }
+    }
+}

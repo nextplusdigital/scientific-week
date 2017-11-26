@@ -1,0 +1,23 @@
+{
+    "romaninisistemasApp": {
+        "vacinacao" : {
+            "home": {
+                "title": "Vacinacaos",
+                "createLabel": "Criar novo Vacinacao",
+                "createOrEditLabel": "Criar ou editar Vacinacao",
+                "search": "Pesquisar por Vacinacao"
+            },
+            "created": "Um novo Vacinacao foi criado com o identificador {{ param }}",
+            "updated": "Um Vacinacao foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Vacinacao foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Vacinacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Vacinacao"
+            },
+            "data": "Data",
+            "responsavel": "Responsavel"
+        }
+    }
+}

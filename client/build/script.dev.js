@@ -2,7 +2,8 @@ process.env.NODE_ENV = 'development'
 
 require('colors')
 
-var path = require('path'),
+var
+  path = require('path'),
   express = require('express'),
   webpack = require('webpack'),
   env = require('./env-utils'),
@@ -65,7 +66,7 @@ app.use(hotMiddleware)
 
 // serve pure static assets
 var staticsPath = path.posix.join(webpackConfig.output.publicPath, 'statics/')
-app.use(staticsPath, express.static('./src/statics'))
+app.use(staticsPath, express.static('./statics'))
 
 // try to serve Cordova statics for Play App
 app.use(express.static(env.platform.cordovaAssets))
@@ -79,7 +80,7 @@ module.exports = app.listen(port, function (err) {
   // open browser if set so in /config/index.js
   if (config.dev.openBrowser) {
     devMiddleware.waitUntilValid(function () {
-      // opn(uri)
+      opn(uri)
     })
   }
 })

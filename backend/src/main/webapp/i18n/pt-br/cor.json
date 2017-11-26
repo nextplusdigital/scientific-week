@@ -1,0 +1,22 @@
+{
+    "romaninisistemasApp": {
+        "cor" : {
+            "home": {
+                "title": "Cors",
+                "createLabel": "Criar novo Cor",
+                "createOrEditLabel": "Criar ou editar Cor",
+                "search": "Pesquisar por Cor"
+            },
+            "created": "Um novo Cor foi criado com o identificador {{ param }}",
+            "updated": "Um Cor foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Cor foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Cor {{ id }}?"
+            },
+            "detail": {
+                "title": "Cor"
+            },
+            "descricao": "Descricao"
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "XII Semana de Tecnologia - FAMETA",
+  "short_name": "FAMETA",
+  "icons": [
+    {
+      "src": "/statics/logo/fameta.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/statics/logo/fameta.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#027be3"
+}

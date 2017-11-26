@@ -1,0 +1,22 @@
+{
+    "romaninisistemasApp": {
+        "remedio" : {
+            "home": {
+                "title": "Remedios",
+                "createLabel": "Criar novo Remedio",
+                "createOrEditLabel": "Criar ou editar Remedio",
+                "search": "Pesquisar por Remedio"
+            },
+            "created": "Um novo Remedio foi criado com o identificador {{ param }}",
+            "updated": "Um Remedio foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Remedio foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Remedio {{ id }}?"
+            },
+            "detail": {
+                "title": "Remedio"
+            },
+            "nome": "Nome"
+        }
+    }
+}
